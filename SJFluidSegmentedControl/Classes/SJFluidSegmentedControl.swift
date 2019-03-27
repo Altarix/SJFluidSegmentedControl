@@ -1261,8 +1261,11 @@ public class SJFluidSegmentedControl: UIView, UIGestureRecognizerDelegate {
         }
         let height = selectorView.frame.height
         let width = selectorView.frame.width
-        var p1 = CGPoint(x: height / 2, y: F(newPercentage) * height)
-        var p4 = CGPoint(x: width - height / 2, y: F(1 - newPercentage) * height)
+        
+        let cornerValue = (applyCornerRadiusToSelectorView ? cornerRadius : height / 2)
+        
+        var p1 = CGPoint(x: cornerValue, y: F(newPercentage) * height)
+        var p4 = CGPoint(x: width - cornerValue, y: F(1 - newPercentage) * height)
         var p2: CGPoint
         var p3: CGPoint
         
